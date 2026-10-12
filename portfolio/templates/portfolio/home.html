@@ -1,0 +1,22 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}Головна - Портфоліо{% endblock %}
+
+{% block content %}
+<section class="section bio-section">
+    <h1>{{ name }}</h1>
+    <p class="bio-text">{{ bio }}</p>
+</section>
+
+<section class="section skills-section">
+    <h2>Навички</h2>
+    <div class="skills-grid">
+        {% for skill in skills %}
+        <div class="skill-item">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-badge badge-{{ skill.level }}">{{ skill.level }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

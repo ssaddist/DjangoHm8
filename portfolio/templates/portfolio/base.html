@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Портфоліо{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'portfolio/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="{% url 'portfolio:home' %}" class="logo">Портфоліо</a>
+            <nav class="nav-links">
+                <a href="{% url 'portfolio:home' %}">Головна</a>
+                <a href="{% url 'portfolio:projects' %}">Проєкти</a>
+                <a href="{% url 'portfolio:contacts' %}">Контакти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>footer🥀</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}Контакти - Портфоліо{% endblock %}
+
+{% block content %}
+<section class="section contacts-section">
+    <h1>Контактна інформація</h1>
+    <p class="section-desc">Зв'яжіться зі мною через один із наведених нижче способів:</p>
+
+    <div class="contacts-card">
+        <div class="contact-row">
+            <span class="contact-label">Email:</span>
+            <span class="contact-value"><a href="mailto:{{ contacts.email }}">{{ contacts.email }}</a></span>
+        </div>
+        <div class="contact-row">
+            <span class="contact-label">Телефон:</span>
+            <span class="contact-value">{{ contacts.phone }}</span>
+        </div>
+        <div class="contact-row">
+            <span class="contact-label">GitHub:</span>
+            <span class="contact-value"><a href="{{ contacts.github }}" target="_blank">{{ contacts.github }}</a></span>
+        </div>
+        <div class="contact-row">
+            <span class="contact-label">Telegram:</span>
+            <span class="contact-value"><a href="{{ contacts.telegram }}" target="_blank">{{ contacts.telegram }}</a></span>
+        </div>
+        <div class="contact-row">
+            <span class="contact-label">Локація:</span>
+            <span class="contact-value">{{ contacts.location }}</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

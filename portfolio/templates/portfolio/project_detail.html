@@ -1,0 +1,51 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}
+{% if project %}{{ project.title }} - Деталі проєкту{% else %}Проєкт не знайдено{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="section project-detail-section">
+    <div class="back-nav">
+        <a href="{% url 'portfolio:projects' %}" class="back-link">&larr; Назад до списку проєктів</a>
+    </div>
+
+    {% if project %}
+    <article class="project-detail-card">
+        <div class="project-detail-header">
+            <h1>{{ project.title }}</h1>
+            <div class="project-meta">
+                <span class="meta-item"><strong>Рік:</strong> {{ project.year }}</span>
+                <span class="meta-item"><strong>Статус:</strong> {{ project.status }}</span>
+                <span class="meta-item"><strong>ID:</strong> {{ project.id }}</span>
+            </div>
+        </div>
+
+        <div class="detail-block">
+            <h3>Короткий опис</h3>
+            <p>{{ project.description }}</p>
+        </div>
+
+        <div class="detail-block">
+            <h3>Детальний опис</h3>
+            <p>{{ project.full_description }}</p>
+        </div>
+
+        <div class="detail-block">
+            <h3>Використані технології</h3>
+            <ul class="tech-list">
+                {% for tech in project.technologies %}
+                <li class="tech-item">{{ tech }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </article>
+    {% else %}
+    <div class="not-found-card">
+        <h2>Проєкт не знайдено</h2>
+        <p>Запитуваний проєкт з таким ідентифікатором відсутній у базі.</p>
+        <a href="{% url 'portfolio:projects' %}" class="btn-primary">Повернутися до каталогу</a>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
